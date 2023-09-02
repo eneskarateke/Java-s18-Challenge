@@ -9,18 +9,16 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "category", schema="spring")
-
+@Table(name = "category", schema = "spring")
 public class Category {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-@Column(name= "id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
 
-@Column(name = "name")
-private String name;
+    @Column(name = "name")
+    private String name;
 
-@OneToMany(mappedBy = "category", cascade = {CascadeType.ALL})
-private List<Book> books;
-
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    private List<Book> books;
 }
